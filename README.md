@@ -56,4 +56,5 @@ dashboard (state lives here)
   - editableproduct
     - product
     - editform
-- productform
+- toggleableproductform
+    - form
