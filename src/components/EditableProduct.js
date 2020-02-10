@@ -6,7 +6,10 @@ const EditableProduct = () => {
   return (
     <div class="product">
       <Product />
-      <ProductForm />
+      <div class="edit-form">
+        <h3>Edit Product</h3>
+        <ProductForm />
+      </div>
     </div>
   );
 };
