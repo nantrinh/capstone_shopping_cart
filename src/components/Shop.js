@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import Cart from './Cart';
 import ProductsList from './ProductsList';
 import ToggleableProductForm from './ToggleableProductForm';
+import products from '../lib/products.js';
 
 class Shop extends Component {
+  state = {
+    products: [], 
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      products,
+    }); 
+  };
+
   render() {
     return (
       <div id="app">
@@ -13,7 +24,7 @@ class Shop extends Component {
         </header>
 
         <main>
-          <ProductsList />
+          <ProductsList products={this.state.products}/>
           <ToggleableProductForm />
         </main>
       </div>
