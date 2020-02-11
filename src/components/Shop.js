@@ -20,6 +20,17 @@ class Shop extends Component {
       ));
   };
 
+  handleSubmit = (product) => {
+    client.post(`/api/products`, product)
+      .then((product) => {
+        this.setState(prevState => ({
+          products: prevState.products.concat(product)
+        }))
+      }).catch(error => (
+        console.log(error)
+      ));
+  }
+
   render() {
     return (
       <div id="app">
@@ -30,7 +41,7 @@ class Shop extends Component {
 
         <main>
           <ProductsList products={this.state.products}/>
-          <ToggleableProductForm />
+          <ToggleableProductForm onSubmit={this.handleSubmit}/>
         </main>
       </div>
     );
