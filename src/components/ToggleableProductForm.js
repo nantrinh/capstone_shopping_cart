@@ -14,6 +14,11 @@ class ToggleableProductForm extends Component {
     })
     console.log(this.state);
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+  }
       
   render() {
     return (

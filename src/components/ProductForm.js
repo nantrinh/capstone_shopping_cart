@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ProductForm = (props) => {  
   function handleChange(e) {
@@ -8,7 +8,7 @@ const ProductForm = (props) => {
   }
 
   return (
-    <form>
+    <form onSubmit={props.onSubmit}>
       <div class="input-group">
         <label for="product-name">Product Name</label>
         <input type="text" id="product-name" value={props.name} 
@@ -28,7 +28,8 @@ const ProductForm = (props) => {
       </div>
 
       <div class="actions form-actions">
-        <a class="button">{props.edit ? 'Update' : 'Add'}</a>
+        <input type="submit" class="button" 
+              value={props.edit ? 'Update' : 'Add'}></input>
         <a class="button">Cancel</a>
       </div>
     </form>
