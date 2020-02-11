@@ -3,6 +3,7 @@ import Cart from './Cart';
 import ProductsList from './ProductsList';
 import ToggleableProductForm from './ToggleableProductForm';
 import products from '../lib/products.js';
+import client from '../lib/client.js';
 
 class Shop extends Component {
   state = {
@@ -10,6 +11,9 @@ class Shop extends Component {
   }
 
   componentDidMount = () => {
+    client.get('/api/products')
+      .then((products) => console.log(products));
+
     this.setState({
       products,
     }); 

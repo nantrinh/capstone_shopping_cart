@@ -1,15 +1,7 @@
 # Shopping Cart App
 
-## Setup
-1. Install [Node.js](https://nodejs.org/en/download/package-manager/) if you haven't already
-1. Install [yarn](https://yarnpkg.com/en/docs/install#mac-stable)
-3. Install the `create-react-app` package globally: `yarn global add create-react-app`
-4. Clone this repository
-5. `cd` into the downloaded directory
-6. Run `yarn install` from the command line to install all dependencies
-
-## Running the app
-While in the app directory, run `yarn start` to start the live server. The command line will display the address you need to visit. The live server will watch for changes to files in the `src` directory and reload the page when they're changed.
+1. Run npm install.
+2. Run npm start.
 
 ## Viewing Static Version of the App
 While developing the app, you can take a look at the static pages that you'll eventually convert into a dynamic application. To do so, visit `/ui` in the browser. You are also encouraged to read and reuse the markup, classes and ids used in these static files in your components. They're located in the `/public/ui` folder.
@@ -55,6 +47,6 @@ dashboard (state lives here)
 - productslist
   - editableproduct
     - product
-    - editform
+    - form
 - toggleableproductform
     - form
