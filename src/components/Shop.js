@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Cart from './Cart';
 import ProductsList from './ProductsList';
 import ToggleableProductForm from './ToggleableProductForm';
-import products from '../lib/products.js';
+import client from '../lib/client.js';
 
 class Shop extends Component {
   state = {
@@ -10,9 +10,14 @@ class Shop extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({
-      products,
-    }); 
+    client.get('/api/products')
+      .then((products) => (
+        this.setState({
+          products,
+        })
+      )).catch(error => (
+        console.log(error)
+      ));
   };
 
   render() {
