@@ -5,7 +5,7 @@ import ProductForm from './ProductForm';
 // add state to decide if form or buttons should be displayed
 const EditableProduct = ({ product }) => {
   return (
-    <div class="product">
+    <div className="product">
       <Product product={product}/>
     </div>
   );

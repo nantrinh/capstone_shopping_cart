@@ -7,7 +7,7 @@ const ProductsList = ({ products }) => {
   ));
 
   return (
-      <div class="product-listing">
+      <div className="product-listing">
         <h2>Products</h2>
         {allProducts}
       </div>

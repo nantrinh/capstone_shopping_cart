@@ -9,28 +9,28 @@ const ProductForm = (props) => {
 
   return (
     <form onSubmit={props.onSubmit}>
-      <div class="input-group">
-        <label for="product-name">Product Name</label>
+      <div className="input-group">
+        <label htmlFor="product-name">Product Name</label>
         <input type="text" id="product-name" value={props.name} 
           onChange={handleChange}/>
       </div>
 
-      <div class="input-group">
-        <label for="product-price">Price</label>
+      <div className="input-group">
+        <label htmlFor="product-price">Price</label>
         <input type="text" id="product-price" value={props.price}
           onChange={handleChange}/>
       </div>
 
-      <div class="input-group">
-        <label for="product-quantity">Quantity</label>
+      <div className="input-group">
+        <label htmlFor="product-quantity">Quantity</label>
         <input type="text" id="product-quantity" value={props.quantity}
           onChange={handleChange}/>
       </div>
 
-      <div class="actions form-actions">
-        <input type="submit" class="button" 
+      <div className="actions htmlForm-actions">
+        <input type="submit" className="button" 
               value={props.edit ? 'Update' : 'Add'}></input>
-        <a class="button">Cancel</a>
+        <a className="button">Cancel</a>
       </div>
     </form>
   );

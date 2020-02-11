@@ -22,8 +22,8 @@ class ToggleableProductForm extends Component {
       
   render() {
     return (
-      <div class="add-form visible">
-        <p><a class="button add-product-button">Add A Product</a></p>
+      <div className="add-form visible">
+        <p><a className="button add-product-button">Add A Product</a></p>
         <h3>Add Product</h3>
         <ProductForm 
           name={this.state.name}
