@@ -17,6 +17,15 @@ class Shop extends Component {
     this.setState({
       products,
     }); 
+   // =======
+   //       .then((products) => (
+   //         this.setState({
+   //           products,
+   //         })
+   //       )).catch(error => (
+   //         console.log(error)
+   //       ));
+   // >>>>>>> 3e113073041de0443805e2721436020cd58ba957
   };
 
   render() {
