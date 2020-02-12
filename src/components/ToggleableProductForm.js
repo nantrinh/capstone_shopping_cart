@@ -5,7 +5,8 @@ class ToggleableProductForm extends Component {
   state = {
     title: "",
     price: "",
-    quantity: ""
+    quantity: "",
+    visible: false
   };
 
   handleChange = e => {
@@ -32,6 +33,10 @@ class ToggleableProductForm extends Component {
     });
   };
 
+  handleToggleVisibleForm = () => {
+    this.setState(prevState => ({ visible: !prevState.visible }));
+  };
+
   render() {
     return (
       <div className="add-form visible">
@@ -46,6 +51,7 @@ class ToggleableProductForm extends Component {
           edit={false}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
+          onCancelClick={this.handleToggleVisibleForm}
         />
       </div>
     );

@@ -30,6 +30,7 @@ class EditableProductForm extends Component {
     return (
       <div className="edit-form">
         <h3>Edit Product</h3>
+
         <ProductForm
           title={this.state.title}
           price={this.state.price}
@@ -37,6 +38,7 @@ class EditableProductForm extends Component {
           edit={true}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
+          onCancelClick={this.props.onCancelClick}
         />
       </div>
     );

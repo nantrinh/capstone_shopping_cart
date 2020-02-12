@@ -42,7 +42,9 @@ const ProductForm = props => {
           className="button"
           value={props.edit ? "Update" : "Add"}
         ></input>
-        <a className="button">Cancel</a>
+        <a className="button" onClick={props.onCancelClick}>
+          Cancel
+        </a>
       </div>
     </form>
   );
