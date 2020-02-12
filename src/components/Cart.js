@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Cart = () => {
   return (
@@ -23,13 +23,15 @@ const Cart = () => {
           </tr>
 
           <tr>
-            <td colSpan="3" className="total">Total: $729.98</td>
+            <td colSpan="3" className="total">
+              Total: $729.98
+            </td>
           </tr>
         </tbody>
       </table>
       <a className="button checkout">Checkout</a>
     </div>
-  ); 
+  );
 };
 
 export default Cart;

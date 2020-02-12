@@ -1,21 +1,43 @@
-import React, { Component } from 'react';
-import ProductForm from './ProductForm';
+import React, { Component } from "react";
+import ProductForm from "./ProductForm";
 
-// add state to control the form and functions to handleChange and handleSubmit of form
-// when passing props to product form, be sure to include `edit={true}`
 class EditableProductForm extends Component {
   state = {
-    // id: ,
-    // name: ,
-    // price: ,
-    // quantity: ,
-  }
+    title: this.props.title,
+    price: this.props.price,
+    quantity: this.props.quantity
+  };
+
+  handleChange = (property, value) => {
+    this.setState({
+      [property]: value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(
+      {
+        title: this.state.title,
+        price: this.state.price,
+        quantity: this.state.quantity
+      },
+      this.props.id
+    );
+  };
 
   render() {
     return (
       <div className="edit-form">
-      <h3>Edit Product</h3>
-      <ProductForm />
+        <h3>Edit Product</h3>
+        <ProductForm
+          title={this.state.title}
+          price={this.state.price}
+          quantity={this.state.quantity}
+          edit={true}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+        />
       </div>
     );
   }

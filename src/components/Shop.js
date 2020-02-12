@@ -1,35 +1,60 @@
-import React, { Component } from 'react';
-import Cart from './Cart';
-import ProductsList from './ProductsList';
-import ToggleableProductForm from './ToggleableProductForm';
-import client from '../lib/client.js';
+import React, { Component } from "react";
+import Cart from "./Cart";
+import ProductsList from "./ProductsList";
+import ToggleableProductForm from "./ToggleableProductForm";
+import client from "../lib/client.js";
 
 class Shop extends Component {
   state = {
-    products: [], 
-  }
-
-  componentDidMount = () => {
-    client.get('/api/products')
-      .then((products) => (
-        this.setState({
-          products,
-        })
-      )).catch(error => (
-        console.log(error)
-      ));
+    products: [],
+    cart: []
   };
 
-  handleSubmit = (product) => {
-    client.post(`/api/products`, product)
-      .then((product) => {
+  componentDidMount = () => {
+    client
+      .get("/api/products")
+      .then(products =>
+        this.setState({
+          products
+        })
+      )
+      .catch(error => console.log(error));
+  };
+
+  handleAddSubmit = product => {
+    client
+      .post(`/api/products`, product)
+      .then(product => {
         this.setState(prevState => ({
           products: prevState.products.concat(product)
-        }))
-      }).catch(error => (
-        console.log(error)
-      ));
-  }
+        }));
+      })
+      .catch(error => console.log(error));
+  };
+
+  handleEditSubmit = (properties, id) => {
+    client.put(`/api/products/${id}`, properties).then(product => {
+      let products = this.state.products.map(prod => {
+        if (prod.id === id) {
+          return Object.assign({}, product);
+        }
+        return prod;
+      });
+
+      this.setState({ products });
+    });
+  };
+
+  // should deleting object also delete from cart??
+  handleDeleteClick = id => {
+    client.delete(`/api/products/${id}`).then(() => {
+      const products = this.state.products.filter(product => {
+        return product.id !== id;
+      });
+
+      this.setState({ products });
+    });
+  };
 
   render() {
     return (
@@ -40,8 +65,12 @@ class Shop extends Component {
         </header>
 
         <main>
-          <ProductsList products={this.state.products}/>
-          <ToggleableProductForm onSubmit={this.handleSubmit}/>
+          <ProductsList
+            products={this.state.products}
+            onSubmit={this.handleEditSubmit}
+            onDelete={this.handleDeleteClick}
+          />
+          <ToggleableProductForm onSubmit={this.handleAddSubmit} />
         </main>
       </div>
     );
