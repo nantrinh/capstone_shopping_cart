@@ -18,7 +18,7 @@ class EditableProduct extends Component {
   render() {
     return (
       <div className="product">
-        <Product product={this.props.product} onDelete={this.props.onDelete} />
+        <Product product={this.props.product} />
         {this.state.editing ? (
           <EditableProductForm
             title={this.props.product.title}
