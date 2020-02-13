@@ -23,8 +23,6 @@ class ProductsList extends Component {
   }
 
   render() {
-    console.log(store.getState().products);
-
     const allProducts = store.getState().products.map(product => (
       <EditableProduct
         key={product.id}
@@ -46,17 +44,6 @@ return (
 
 export default ProductsList;
 
-
-  // handleAddSubmit = product => {
-  //   client
-  //     .post(`/api/products`, product)
-  //     .then(product => {
-  //       this.setState(prevState => ({
-  //         products: prevState.products.concat(product)
-  //       }));
-  //     })
-  //     .catch(error => console.log(error));
-  // };
 
   // handleEditSubmit = (properties, id) => {
   //   client.put(`/api/products/${id}`, properties).then(product => {

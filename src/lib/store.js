@@ -6,6 +6,8 @@ const products = (state=[], action) => {
       return state.concat(action.payload.products);
     case 'DELETE_PRODUCT': 
       return action.payload.products;  
+    case 'ADD_PRODUCT':
+      return state.concat(action.payload.product);  
   }
   return state;
 };
