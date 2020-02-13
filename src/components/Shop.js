@@ -7,20 +7,8 @@ import client from "../lib/client.js";
 class Shop extends Component {
   state = {
     products: [],
-    cart: {} // format will be {product_id: {title, ordered_quantity, price} }
+    cart: [],
   };
-
-  componentDidMount = () => {
-    client
-      .get("/api/products")
-      .then(products =>
-        this.setState({
-          products
-        })
-      )
-      .catch(error => console.log(error));
-  };
-
   handleAddSubmit = product => {
     client
       .post(`/api/products`, product)
@@ -57,11 +45,7 @@ class Shop extends Component {
   };
 
   handleAddToCartClick = id => {
-    // find if item is in cart
-    // if yes then update the ordered_quanity
-    // if no then add the item and set ordered_quanity to 1
-    // make sure to decrement the quantity available.
-    // make sure that add to cart doesn't display if the quantity available is 0
+    this.setState
   };
 
   render() {
@@ -69,7 +53,7 @@ class Shop extends Component {
       <div id="app">
         <header>
           <h1>The Shop!</h1>
-          <Cart products={this.state.cart} />
+//          <Cart products={this.state.cart} />
         </header>
 
         <main>
