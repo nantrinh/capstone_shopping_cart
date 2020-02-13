@@ -8,7 +8,10 @@ class EditableProductForm extends Component {
     quantity: this.props.quantity
   };
 
-  handleChange = (property, value) => {
+  handleChange = e => {
+    const property = e.target.name;
+    const value = e.target.value;
+
     this.setState({
       [property]: value
     });

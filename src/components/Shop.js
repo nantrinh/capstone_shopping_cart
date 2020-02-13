@@ -7,7 +7,7 @@ import client from "../lib/client.js";
 class Shop extends Component {
   state = {
     products: [],
-    cart: [] // [{title, price, order_quantity}, {titl2, price2, order_quanity}]
+    cart: {} // format will be {product_id: {title, ordered_quantity, price} }
   };
 
   componentDidMount = () => {
