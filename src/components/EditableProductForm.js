@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProductForm from "./ProductForm";
+import store from "../lib/store";
 
 class EditableProductForm extends Component {
   state = {
@@ -19,14 +20,18 @@ class EditableProductForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(
-      {
-        title: this.state.title,
-        price: this.state.price,
-        quantity: this.state.quantity
-      },
-      this.props.id
-    );
+    store.dispatch({
+      type: "PRODUCT_EDITED",
+      payload: {
+        product: {
+          title: this.state.title,
+          price: this.state.price,
+          quantity: this.state.quantity,
+          id: this.props.id
+        }
+      }
+    });
+    this.props.onSubmit();
   };
 
   render() {

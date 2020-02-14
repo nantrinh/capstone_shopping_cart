@@ -10,8 +10,20 @@ const products = (state = [], action) => {
       });
     case "PRODUCT_ADDED":
       return state.concat(action.payload.product);
-    // case "PRODUCT_ADDED_TO_CART":
-    //   return;
+    case "PRODUCT_ADDED_TO_CART":
+      return state.map(product => {
+        if (product.id === action.payload.product.id) {
+          product.quantity -= 1;
+        }
+        return product;
+      });
+    case "PRODUCT_EDITED":
+      return state.map(product => {
+        if (product.id === action.payload.product.id) {
+          return action.payload.product;
+        }
+        return product;
+      });
     default:
   }
   return state;
@@ -40,8 +52,17 @@ const cart = (state = [], action) => {
 
       console.log(newState);
       return newState;
-    case "PRODUCT_REMOVED_FROM_CART":
-      return;
+    case "PRODUCT_EDITED":
+      return state.map(product => {
+        if (product.id === action.payload.product.id) {
+          return {
+            ...product,
+            title: action.payload.product.title,
+            price: action.payload.product.price
+          };
+        }
+        return product;
+      });
     default:
   }
   return state;

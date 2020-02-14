@@ -25,6 +25,8 @@ class EditableProduct extends Component {
   };
 
   render() {
+    const disabled = this.props.product.quantity === 0;
+
     return (
       <div className="product">
         <Product product={this.props.product} />
@@ -34,13 +36,13 @@ class EditableProduct extends Component {
             price={this.props.product.price}
             quantity={this.props.product.quantity}
             id={this.props.product.id}
-            onSubmit={this.props.onSubmit}
+            onSubmit={this.handleToggleEditClick}
             onCancelClick={this.handleToggleEditClick}
           />
         ) : (
           <div className="actions product-actions">
             <a
-              className="button add-to-cart"
+              className={"button add-to-cart " + (disabled ? "disabled" : "")}
               onClick={e => {
                 this.handleAddToCartClick(e);
               }}
