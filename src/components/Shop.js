@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-// import Cart from "./Cart";
+import Cart from "./Cart";
 import ProductsList from "./ProductsList";
 import ToggleableProductForm from "./ToggleableProductForm";
 
 class Shop extends Component {
   state = {
     products: [],
-    cart: [],
+    cart: []
   };
 
   // Move this to productsList or Product?
@@ -19,7 +19,7 @@ class Shop extends Component {
       <div id="app">
         <header>
           <h1>The Shop!</h1>
-{/* //          <Cart products={this.state.cart} /> */}
+          <Cart />
         </header>
 
         <main>

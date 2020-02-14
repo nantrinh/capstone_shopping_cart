@@ -1,6 +1,7 @@
 import Product from "./Product";
 import EditableProductForm from "./EditableProductForm";
 import React, { Component } from "react";
+import store from "../lib/store";
 
 // add state to decide if form or buttons should be displayed
 
@@ -13,7 +14,15 @@ class EditableProduct extends Component {
     this.setState(prevState => ({ editing: !prevState.editing }));
   };
 
-  handleAddToCartClick = e => {};
+  handleAddToCartClick = e => {
+    e.preventDefault();
+    store.dispatch({
+      type: "PRODUCT_ADDED_TO_CART",
+      payload: {
+        product: this.props.product
+      }
+    });
+  };
 
   render() {
     return (
@@ -32,8 +41,8 @@ class EditableProduct extends Component {
           <div className="actions product-actions">
             <a
               className="button add-to-cart"
-              onClick={() => {
-                this.props.onAddToCartClick(this.props.product.id);
+              onClick={e => {
+                this.handleAddToCartClick(e);
               }}
             >
               Add to Cart
