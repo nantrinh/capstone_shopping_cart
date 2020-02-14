@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { uuid } from "uuidv4";
 let uuid1 = uuid();
 let products = [
   {
@@ -66,6 +66,7 @@ const client = {
         products = products.map(p => {
           return p.id === id ? newProduct : p;
         });
+        console.log(products);
         resolve(newProduct);
       } else {
         reject("Invalid URL!");
