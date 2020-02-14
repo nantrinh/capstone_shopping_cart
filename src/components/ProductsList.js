@@ -27,8 +27,6 @@ class ProductsList extends Component {
       <EditableProduct
         key={product.id}
         product={product}
-        // onSubmit={onSubmit}
-        // onDelete={onDelete}
       />
     ));
 
@@ -43,17 +41,3 @@ return (
 };
 
 export default ProductsList;
-
-
-  // handleEditSubmit = (properties, id) => {
-  //   client.put(`/api/products/${id}`, properties).then(product => {
-  //     let products = this.state.products.map(prod => {
-  //       if (prod.id === id) {
-  //         return Object.assign({}, product);
-  //       }
-  //       return prod;
-  //     });
-
-  //     this.setState({ products });
-  //   });
-  // };

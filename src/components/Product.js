@@ -5,15 +5,11 @@ import client from '../lib/client';
 class Product extends Component {
     // should deleting object also delete from cart??
     handleDeleteClick = id => {
-      client.delete(`/api/products/${id}`).then(() => {
-        const products = store.getState().products.filter(product => {
-          return product.id !== id;
-        });
-  
+      client.delete(`/api/products/${id}`).then(() => {  
         store.dispatch({
-          type: 'DELETE_PRODUCT',
+          type: 'PRODUCT_DELETED',
           payload: {
-            products,
+            id,
           }
         });
       });

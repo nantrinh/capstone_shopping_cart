@@ -23,7 +23,7 @@ class ToggleableProductForm extends Component {
       .post(`/api/products`, product)
       .then(product => {
         store.dispatch({
-          type: 'ADD_PRODUCT',
+          type: 'PRODUCT_ADDED',
           payload: {
             product,
           }

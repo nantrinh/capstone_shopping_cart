@@ -29,16 +29,16 @@ class EditableProduct extends Component {
             onCancelClick={this.handleToggleEditClick}
           />
         ) : (
-          <div class="actions product-actions">
+          <div className="actions product-actions">
             <a
-              class="button add-to-cart"
+              className="button add-to-cart"
               onClick={() => {
                 this.props.onAddToCartClick(this.props.product.id);
               }}
             >
               Add to Cart
             </a>
-            <a class="button edit" onClick={this.handleToggleEditClick}>
+            <a className="button edit" onClick={this.handleToggleEditClick}>
               Edit
             </a>
           </div>

@@ -4,9 +4,11 @@ const products = (state=[], action) => {
   switch (action.type) {
     case 'PRODUCTS_RECEIVED':
       return state.concat(action.payload.products);
-    case 'DELETE_PRODUCT': 
-      return action.payload.products;  
-    case 'ADD_PRODUCT':
+    case 'PRODUCT_DELETED':
+      return state.filter(product => {
+        return (product.id !== action.payload.id)
+      });  
+    case 'PRODUCT_ADDED':
       return state.concat(action.payload.product);  
   }
   return state;
