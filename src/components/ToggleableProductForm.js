@@ -8,7 +8,7 @@ class ToggleableProductForm extends Component {
     title: "",
     price: "",
     quantity: "",
-    visible: false
+    formVisible: false
   };
 
   handleAddSubmit = event => {
@@ -48,15 +48,14 @@ class ToggleableProductForm extends Component {
   };
 
   handleToggleVisibleForm = () => {
-    this.setState(prevState => ({ visible: !prevState.visible }));
+    this.setState(prevState => ({ formVisible: !prevState.formVisible }));
   };
 
   render() {
     return (
-      <div className="add-form">
-        {this.state.visible ? (
+      <div>
+        <div className={"add-form" + (this.state.formVisible ? "visible": "")}>
           <div>
-            <p>where's the form?</p>
             <h3>Add A Product</h3>
             <ProductForm
               title={this.state.title}
@@ -68,7 +67,8 @@ class ToggleableProductForm extends Component {
               onCancelClick={this.handleToggleVisibleForm}
             />
           </div>
-        ) : (
+      </div>
+      <div className={this.state.formVisible ? "hide" : ""}>
           <p>
             <a
               className="button add-product-button"
@@ -77,8 +77,8 @@ class ToggleableProductForm extends Component {
               Add A Product
             </a>
           </p>
-        )}
       </div>
+    </div>
     );
   }
 }
