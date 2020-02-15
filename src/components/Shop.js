@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Cart from "./Cart";
 import ProductsListContainer from "./ProductsListContainer";
 import ToggleableProductForm from "./ToggleableProductForm";
