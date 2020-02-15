@@ -1,33 +1,55 @@
-import React from 'react';
+import React, { Component } from "react";
+import store from "../lib/store";
+import CartItem from "./CartItem";
 
-const Cart = () => {
-  return (
-    <div class="cart">
-      <h2>Your Cart</h2>
-      <table class="cart-items">
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-        <tr>
-          <td>Amazon Kindle E-reader</td>
-          <td>2</td>
-          <td>$79.99</td>
-        </tr>
-        <tr>
-          <td>Apple 10.5-Inch iPad Pro</td>
-          <td>1</td>
-          <td>$649.99</td>
-        </tr>
+class Cart extends Component {
+  componentDidMount = () => {
+    this.unsubscribe = store.subscribe(() => {
+      this.forceUpdate();
+    });
+  };
 
-        <tr>
-          <td colspan="3" class="total">Total: $729.98</td>
-        </tr>
-      </table>
-      <a class="button checkout">Checkout</a>
-    </div>
-  ); 
-};
+  componentWillUnmount = () => {
+    this.unsubscribe();
+  };
+
+  calculate_total = () => {
+    let total = store.getState().cart.reduce((acc, product) => {
+      return (acc +=
+        parseInt(product.quantity, 10) * parseFloat(product.price, 10));
+    }, 0);
+
+    return total.toFixed(2);
+  };
+
+  render() {
+    const rows = store.getState().cart.map(product => {
+      return <CartItem key={product.id} product={product} />;
+    });
+
+    return (
+      <div className="cart">
+        <h2>Your Cart</h2>
+
+        <table className="cart-items">
+          <tbody>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+            {rows}
+            <tr>
+              <td colSpan="3" className="total">
+                Total: $ {this.calculate_total()}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a className="button checkout">Checkout</a>
+      </div>
+    );
+  }
+}
 
 export default Cart;

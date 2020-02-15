@@ -87,12 +87,16 @@ const client = {
         products = products.map(p => {
           return p.id === id ? newProduct : p;
         });
+<<<<<<< HEAD
 
 =======
         products = products.map(p => {
           return p.id === id ? newProduct : p;
         });
 >>>>>>> 3e113073041de0443805e2721436020cd58ba957
+=======
+        console.log(products);
+>>>>>>> master
         resolve(newProduct);
       } else {
         reject("Invalid URL!");
@@ -164,8 +168,12 @@ client.delete(`/api/products/${uuid1}`)
       });
 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default client;
 =======
 export default client;
 >>>>>>> 3e113073041de0443805e2721436020cd58ba957
+=======
+export default client;
+>>>>>>> master

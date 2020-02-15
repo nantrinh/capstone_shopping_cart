@@ -1,32 +1,18 @@
-import React, { Component } from 'react';
-import Cart from './Cart';
-import ProductsList from './ProductsList';
-import ToggleableProductForm from './ToggleableProductForm';
-import products from '../lib/products.js';
-import client from '../lib/client.js';
+import React, { Component } from "react";
+import Cart from "./Cart";
+import ProductsList from "./ProductsList";
+import ToggleableProductForm from "./ToggleableProductForm";
 
 class Shop extends Component {
   state = {
-    products: [], 
-  }
-
-  componentDidMount = () => {
-    client.get('/api/products')
-      .then((products) => console.log(products));
-
-    this.setState({
-      products,
-    }); 
-   // =======
-   //       .then((products) => (
-   //         this.setState({
-   //           products,
-   //         })
-   //       )).catch(error => (
-   //         console.log(error)
-   //       ));
-   // >>>>>>> 3e113073041de0443805e2721436020cd58ba957
+    products: [],
+    cart: []
   };
+
+  // Move this to productsList or Product?
+  // handleAddToCartClick = id => {
+  //   this.setState
+  // };
 
   render() {
     return (
@@ -37,7 +23,7 @@ class Shop extends Component {
         </header>
 
         <main>
-          <ProductsList products={this.state.products}/>
+          <ProductsList />
           <ToggleableProductForm />
         </main>
       </div>
