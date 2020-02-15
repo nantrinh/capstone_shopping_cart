@@ -19,7 +19,7 @@ class Product extends Component {
     return (
       <div className="product-details">
         <h3>{this.props.product.title}</h3>
-        <p className="price">{this.props.product.price}</p>
+        <p className="price">${this.props.product.price}</p>
         <p className="quantity">{this.props.product.quantity}</p>
         <a
           className="delete-button"
