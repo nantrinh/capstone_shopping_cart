@@ -28,7 +28,8 @@ class EditableProduct extends Component {
             product
           }
         });
-      });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
