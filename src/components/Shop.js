@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Cart from "./Cart";
-import ProductsList from "./ProductsList";
+import ProductsListContainer from "./ProductsListContainer";
 import ToggleableProductForm from "./ToggleableProductForm";
 
 const Shop = () => (
@@ -11,7 +11,7 @@ const Shop = () => (
     </header>
 
     <main>
-      <ProductsList />
+      <ProductsListContainer />
       <ToggleableProductForm />
     </main>
   </div>

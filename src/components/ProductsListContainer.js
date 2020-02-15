@@ -1,6 +1,6 @@
-import client from "../lib/client";
 import { connect } from "react-redux";
 import ProductsList from "./ProductsList";
+import client from "../lib/client";
 
 const mapStateToProps = state => {
   return {

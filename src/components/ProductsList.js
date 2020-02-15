@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import EditableProduct from "./EditableProduct";
 
-class ProductsList extends React.Component {
+class ProductsList extends Component {
   componentDidMount() {
     this.props.onFetchProducts();
   }
