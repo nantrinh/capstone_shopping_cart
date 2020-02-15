@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import EditableProduct from "./EditableProduct";
+import EditableProductContainer from "./EditableProductContainer";
 
 class ProductsList extends Component {
   componentDidMount() {
@@ -8,7 +8,7 @@ class ProductsList extends Component {
 
   render() {
     const allProducts = this.props.products.map(product => (
-      <EditableProduct key={product.id} product={product} />
+      <EditableProductContainer key={product.id} product={product} />
     ));
 
     return (

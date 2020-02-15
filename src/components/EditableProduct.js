@@ -1,10 +1,6 @@
 import Product from "./Product";
 import EditableProductForm from "./EditableProductForm";
 import React, { Component } from "react";
-import store from "../lib/store";
-import client from "../lib/client";
-
-// add state to decide if form or buttons should be displayed
 
 class EditableProduct extends Component {
   state = {
@@ -17,19 +13,7 @@ class EditableProduct extends Component {
 
   handleAddToCartClick = e => {
     e.preventDefault();
-    client
-      .put(`/api/products/${this.props.product.id}`, {
-        quantity: this.props.product.quantity - 1
-      })
-      .then(product => {
-        store.dispatch({
-          type: "PRODUCT_ADDED_TO_CART",
-          payload: {
-            product
-          }
-        });
-      })
-      .catch(error => console.log(error));
+    this.props.onAddToCartClick();
   };
 
   render() {
