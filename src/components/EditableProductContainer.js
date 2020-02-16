@@ -4,10 +4,10 @@ import client from "../lib/client";
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddToCartClick: () => {
+    onAddToCartClick: product => {
       client
-        .put(`/api/products/${this.props.product.id}`, {
-          quantity: this.props.product.quantity - 1
+        .put(`/api/products/${product.id}`, {
+          quantity: product.quantity - 1
         })
         .then(product => {
           dispatch({

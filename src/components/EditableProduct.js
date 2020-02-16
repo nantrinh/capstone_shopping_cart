@@ -13,10 +13,11 @@ class EditableProduct extends Component {
 
   handleAddToCartClick = e => {
     e.preventDefault();
-    this.props.onAddToCartClick();
+    this.props.onAddToCartClick(this.props.product);
   };
 
   render() {
+    const { title, price, quantity, id } = this.props.product;
     const disabled = this.props.product.quantity === 0;
 
     return (
@@ -24,10 +25,10 @@ class EditableProduct extends Component {
         <Product product={this.props.product} />
         {this.state.editing ? (
           <EditableProductForm
-            title={this.props.product.title}
-            price={this.props.product.price}
-            quantity={this.props.product.quantity}
-            id={this.props.product.id}
+            title={title}
+            price={price}
+            quantity={quantity}
+            id={id}
             onSubmit={this.handleToggleEditClick}
             onCancelClick={this.handleToggleEditClick}
           />

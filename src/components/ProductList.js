@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import EditableProductContainer from "./EditableProductContainer";
 
-class ProductsList extends Component {
+class ProductList extends Component {
   componentDidMount() {
     this.props.onFetchProducts();
   }
@@ -20,4 +20,4 @@ class ProductsList extends Component {
   }
 }
 
-export default ProductsList;
+export default ProductList;

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ProductsList from "./ProductsList";
+import ProductList from "./ProductList";
 import client from "../lib/client";
 
 const mapStateToProps = state => {
@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

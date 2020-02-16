@@ -1,17 +1,17 @@
 import React from "react";
-import Cart from "./Cart";
-import ProductsListContainer from "./ProductsListContainer";
+import CartContainer from "./CartContainer";
+import ProductListContainer from "./ProductListContainer";
 import ToggleableProductForm from "./ToggleableProductForm";
 
 const Shop = () => (
   <div id="app">
     <header>
       <h1>The Shop!</h1>
-      <Cart />
+      <CartContainer />
     </header>
 
     <main>
-      <ProductsListContainer />
+      <ProductListContainer />
       <ToggleableProductForm />
     </main>
   </div>
