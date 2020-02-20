@@ -5,6 +5,10 @@ import client from "../lib/client";
 const mapDispatchToProps = dispatch => {
   return {
     onAddToCartClick: product => {
+      if (product.quantity === 0) {
+        return;
+      }
+
       client
         .put(`/api/products/${product.id}`, {
           quantity: product.quantity - 1
