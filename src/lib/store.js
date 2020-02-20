@@ -13,7 +13,10 @@ const products = (state = [], action) => {
     case "PRODUCT_ADDED_TO_CART":
       return state.map(product => {
         if (product.id === action.payload.product.id) {
-          product.quantity -= 1;
+          let newproduct = { ...product };
+          newproduct.quantity = product.quantity - 1;
+          return newproduct;
+          //return { ...action.payload.product };
         }
         return product;
       });
@@ -42,15 +45,12 @@ const cart = (state = [], action) => {
       });
 
       if (!exists) {
-        // debugger;
         const product = {
           ...action.payload.product,
           quantity: 1
         };
         newState = [...newState, product];
       }
-
-      console.log(newState);
       return newState;
     case "PRODUCT_EDITED":
       return state.map(product => {
