@@ -56,12 +56,11 @@ const client = {
   },
   put: (url, data) => {
     return new Promise((resolve, reject) => {
-      console.log('this is my data');
-      console.log(data);
       if (
-        data.title === undefined
-        && data.quantity === undefined 
-        && data.price === undefined) {
+        data.title === undefined &&
+        data.quantity === undefined &&
+        data.price === undefined
+      ) {
         reject("Please provide at least one field");
       }
       if (url.match(/\/api\/products\/.+/)) {
@@ -71,7 +70,6 @@ const client = {
         products = products.map(p => {
           return p.id === id ? newProduct : p;
         });
-        console.log(products);
         resolve(newProduct);
       } else {
         reject("Invalid URL!");

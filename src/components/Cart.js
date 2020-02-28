@@ -12,7 +12,6 @@ const calculate_total = cartProduct => {
 };
 
 const Cart = ({ cartProducts }) => {
-  console.log(cartProducts);
   const rows = cartProducts.map(product => {
     return <CartProduct key={product.id} product={product} />;
   });
